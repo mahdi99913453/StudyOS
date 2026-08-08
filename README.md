@@ -13,7 +13,6 @@ StudyOS helps students organize their academic life in one simple and local-firs
 - 📝 Rich text document editor
 - 📅 Calendar
 - 📈 Study progress tracking
-- 🗂️ Flashcards
 - 🔍 Task and content search
 - 💾 Local data storage
 - 🌙 Light and dark themes
@@ -33,6 +32,9 @@ No installation is required.
 
 Simply open `index.html` in your web browser.
 
+## 🌐 Live Demo
+
+[Coming soon.](https://mahdi99913453.github.io/StudyOS/)
 
 ## 📁 Project Structure
 
