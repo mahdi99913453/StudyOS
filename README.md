@@ -33,9 +33,6 @@ No installation is required.
 
 Simply open `index.html` in your web browser.
 
-## 🌐 Live Demo
-
-https://mahdi99913453.github.io/StudyOS
 
 ## 📁 Project Structure
 
