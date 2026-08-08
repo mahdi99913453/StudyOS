@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#5b5ce2">
+<title>StudyOS — Student Workspace</title>
+<style>
+:root{--bg:#f5f6fa;--panel:#fff;--panel2:#f0f1f7;--text:#151821;--muted:#6e7483;--line:#e1e3ea;--brand:#5b5ce2;--brand2:#4748c8;--good:#17946a;--warn:#c98522;--bad:#d84d61;--shadow:0 12px 35px rgba(25,28,45,.07);--r:16px}
+[data-theme=dark]{--bg:#0d1016;--panel:#141820;--panel2:#1b202a;--text:#edf0f7;--muted:#9ca5b6;--line:#2b3240;--shadow:0 18px 50px rgba(0,0,0,.25)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px Inter,system-ui,-apple-system,Segoe UI,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer;color:inherit}.app{display:flex;min-height:100vh}.side{width:250px;flex:none;background:var(--panel);border-right:1px solid var(--line);padding:18px 12px;position:sticky;top:0;height:100vh;z-index:30}.brand{display:flex;gap:10px;align-items:center;padding:4px 8px 25px}.logo{width:38px;height:38px;border-radius:11px;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:900;font-size:20px}.brand b{display:block}.brand small{color:var(--muted)}.nav{display:grid;gap:4px}.nav button{border:0;background:transparent;text-align:left;padding:11px;border-radius:10px;color:var(--muted);display:flex;gap:11px;align-items:center}.nav button:hover,.nav button.active{background:color-mix(in srgb,var(--brand) 12%,transparent);color:var(--brand);font-weight:700}.side-foot{position:absolute;bottom:16px;left:16px;right:16px;border-top:1px solid var(--line);padding-top:13px;color:var(--muted);font-size:11px}.main{flex:1;min-width:0}.top{height:67px;background:color-mix(in srgb,var(--panel) 92%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 25px;position:sticky;top:0;z-index:20}.top h2{font-size:16px;margin:0}.top small{color:var(--muted)}.top-actions{display:flex;gap:7px;align-items:center}.icon,.btn{border:1px solid var(--line);background:var(--panel);border-radius:9px;min-height:37px;padding:8px 12px}.icon{width:37px;padding:0}.btn.primary{background:var(--brand);border-color:var(--brand);color:white}.btn:hover,.icon:hover{background:var(--panel2)}.btn.primary:hover{background:var(--brand2)}.content{padding:30px;max-width:1500px;margin:auto}.head{display:flex;justify-content:space-between;gap:18px;align-items:flex-end;margin-bottom:23px}.head h1{font-size:29px;letter-spacing:-.04em;margin:0}.head p{color:var(--muted);margin:7px 0 0}.actions{display:flex;gap:8px;flex-wrap:wrap}.grid{display:grid;gap:15px}.stats{grid-template-columns:repeat(4,1fr)}.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:18px}.stat-label{color:var(--muted);font-size:12px}.stat-value{font-size:28px;font-weight:850;margin-top:7px}.stat-meta{font-size:11px;color:var(--muted);margin-top:4px}.two{grid-template-columns:1.3fr 1fr}.three{grid-template-columns:repeat(3,1fr)}.card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.card-head h3{margin:0;font-size:14px}.muted{color:var(--muted)}.list{display:grid;gap:9px}.row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:11px;padding:12px;border:1px solid var(--line);border-radius:11px}.row:hover{background:var(--panel2)}.check{width:18px;height:18px;accent-color:var(--brand)}.title{font-weight:750}.done{text-decoration:line-through;color:var(--muted)}.sub{font-size:11px;color:var(--muted);margin-top:4px}.pill{display:inline-flex;padding:4px 7px;border-radius:999px;background:var(--panel2);font-size:10px;font-weight:750}.good{color:var(--good)}.warn{color:var(--warn)}.bad{color:var(--bad)}.progress{height:7px;background:var(--panel2);border-radius:99px;overflow:hidden}.progress i{display:block;height:100%;background:var(--brand);border-radius:inherit}.toolbar{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}.toolbar input,.toolbar select,.field input,.field select,.field textarea{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:9px;padding:9px 11px;min-height:38px}.grow{flex:1;min-width:200px}.subject{padding:16px;border:1px solid var(--line);border-radius:13px;background:var(--panel)}.subject h3{margin:0 0 7px}.subject p{margin:0;color:var(--muted);font-size:12px}.subject-foot{display:flex;justify-content:space-between;margin-top:13px;font-size:11px;color:var(--muted)}.note{min-height:180px}.note h3{margin:8px 0}.note p{white-space:pre-wrap;color:var(--muted);line-height:1.55}.calendar{display:grid;grid-template-columns:repeat(7,1fr);border:1px solid var(--line);border-radius:13px;overflow:hidden}.cal-head,.day{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:9px}.cal-head{background:var(--panel2);font-size:11px;font-weight:750;color:var(--muted)}.day{min-height:105px;background:var(--panel)}.day.today{box-shadow:inset 0 3px var(--brand)}.event{margin-top:7px;padding:4px 5px;border-radius:5px;background:color-mix(in srgb,var(--brand) 14%,transparent);font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.flashcard{min-height:290px;display:grid;place-items:center;text-align:center;font-size:24px;font-weight:800;padding:35px}.flashcard small{display:block;font-size:11px;color:var(--muted);font-weight:500;margin-top:12px}.bar-chart{height:240px;display:flex;gap:12px;align-items:flex-end}.bar-col{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:6px}.bar{width:min(35px,100%);background:var(--brand);border-radius:5px 5px 2px 2px}.bar-col small{font-size:9px;color:var(--muted)}.modal-bg{position:fixed;inset:0;background:#0008;display:grid;place-items:center;padding:18px;z-index:100}.modal{width:min(580px,100%);max-height:90vh;overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 30px 90px #0005}.modal h2{margin:0}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:17px}.field{display:grid;gap:6px;margin:12px 0}.field label{font-size:12px;font-weight:700}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}.toast{position:fixed;right:18px;bottom:18px;background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow);padding:12px 15px;border-radius:10px;z-index:200}.empty{text-align:center;padding:35px;color:var(--muted)}.empty b{display:block;color:var(--text);margin-bottom:5px}.mobile{display:none}
+
+.editor-shell{display:grid;grid-template-columns:280px 1fr;gap:15px;min-height:650px}
+.doc-list{display:grid;gap:7px;align-content:start}
+.doc-item{border:1px solid var(--line);background:var(--panel);padding:12px;border-radius:11px;text-align:left;cursor:pointer}
+.doc-item.active{border-color:var(--brand);background:color-mix(in srgb,var(--brand) 9%,var(--panel))}
+.doc-item b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.doc-item small{display:block;color:var(--muted);margin-top:4px}
+.editor-card{padding:0;overflow:hidden}
+.editor-toolbar{display:flex;gap:5px;flex-wrap:wrap;padding:10px;border-bottom:1px solid var(--line);background:var(--panel2)}
+.editor-toolbar button,.editor-toolbar select{border:1px solid var(--line);background:var(--panel);border-radius:7px;min-width:34px;height:34px;padding:0 8px}
+.editor-toolbar button:hover{border-color:var(--brand);color:var(--brand)}
+.editor-toolbar .sep{width:1px;background:var(--line);margin:0 3px}
+.editor-title{width:100%;border:0;border-bottom:1px solid var(--line);background:var(--panel);color:var(--text);font-size:25px;font-weight:800;padding:20px 24px 13px;outline:0}
+.editor-meta{display:flex;gap:10px;align-items:center;padding:8px 24px;color:var(--muted);font-size:11px;border-bottom:1px solid var(--line)}
+.editor-page{padding:25px 8%;min-height:470px;outline:0;line-height:1.7;font-size:15px}
+.editor-page:focus{box-shadow:inset 0 0 0 2px color-mix(in srgb,var(--brand) 16%,transparent)}
+.editor-page h1{font-size:30px}.editor-page h2{font-size:23px}.editor-page blockquote{border-left:4px solid var(--brand);padding-left:14px;color:var(--muted)}
+.editor-page img{max-width:100%;height:auto}
+.editor-status{display:flex;justify-content:space-between;padding:8px 12px;border-top:1px solid var(--line);color:var(--muted);font-size:10px}
+.doc-empty{display:grid;place-items:center;min-height:600px}
+@media(max-width:900px){.editor-shell{grid-template-columns:1fr}.doc-list{grid-template-columns:repeat(2,1fr)}.editor-page{padding:22px 6%}}
+@media(max-width:1050px){.stats{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}.three{grid-template-columns:repeat(2,1fr)}}@media(max-width:750px){.side{position:fixed;left:-270px;transition:.2s}.side.open{left:0}.mobile{display:inline-block}.content{padding:20px 14px}.top{padding:0 14px}.three,.stats{grid-template-columns:1fr}.head{align-items:flex-start;flex-direction:column}.calendar{font-size:10px}.day{min-height:75px;padding:6px}.event{font-size:8px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="side" id="side">
+ <div class="brand"><div class="logo">S</div><div><b>StudyOS</b><small>Student Workspace</small></div></div>
+ <nav class="nav" id="nav"></nav>
+ <div class="side-foot">Local-first · No account required<br>All data stays in this browser.</div>
+</aside>
+<main class="main">
+<header class="top"><div><button class="icon mobile" id="menu">☰</button> <h2 id="pageTitle" style="display:inline">Dashboard</h2></div><div class="top-actions"><button class="icon" id="theme" title="Theme">◐</button><button class="icon" id="searchBtn">⌕</button><button class="icon" id="exportBtn">⇩</button><button class="icon" id="importBtn">⇧</button></div></header>
+<div class="content" id="appRoot"></div>
+</main>
+</div>
+<input type="file" id="importFile" accept="application/json" hidden>
+<div id="modalRoot"></div><div id="toastRoot"></div>
+<script>
+"use strict";
+const KEY="studyos.v1",today=()=>new Date().toISOString().slice(0,10),uid=()=>crypto.randomUUID?.()||Date.now().toString(36)+Math.random().toString(36).slice(2);
+const clone=x=>JSON.parse(JSON.stringify(x));
+const initial={
+ theme:"system",profile:{name:"Mahdi",email:""},
+ subjects:[
+  {id:uid(),name:"JavaScript",code:"JS101",teacher:"Web Development",color:"brand",goal:"Master modern JavaScript fundamentals."},
+  {id:uid(),name:"Mathematics",code:"MATH01",teacher:"Mathematics",color:"good",goal:"Build consistent problem-solving practice."},
+  {id:uid(),name:"English",code:"ENG01",teacher:"Language",color:"warn",goal:"Improve technical reading and vocabulary."}
+ ],
+ courses:[
+  {id:uid(),subject:"JavaScript",title:"DOM & Events",done:false,progress:60},
+  {id:uid(),subject:"JavaScript",title:"Async JavaScript",done:false,progress:35},
+  {id:uid(),subject:"Mathematics",title:"Functions",done:true,progress:100}
+ ],
+ tasks:[
+  {id:uid(),title:"Finish DOM exercises",subject:"JavaScript",due:today(),priority:"high",done:false},
+  {id:uid(),title:"Review functions",subject:"Mathematics",due:new Date(Date.now()+86400000).toISOString().slice(0,10),priority:"medium",done:false},
+  {id:uid(),title:"Read technical article",subject:"English",due:new Date(Date.now()+86400000*2).toISOString().slice(0,10),priority:"low",done:false}
+ ],
+ notes:[
+  {id:uid(),title:"JavaScript DOM",content:"Remember: query elements, listen for events, update state, then render the affected UI.",subject:"JavaScript",at:new Date().toISOString()}
+ ],
+ cards:[
+  {id:uid(),subject:"JavaScript",front:"What does addEventListener do?",back:"Registers a function to run when a specified event occurs."},
+  {id:uid(),subject:"JavaScript",front:"What is const?",back:"A block-scoped binding that cannot be reassigned after initialization."},
+  {id:uid(),subject:"Mathematics",front:"Derivative of x²?",back:"2x"}
+ ],
+ questions:[
+  {id:uid(),subject:"JavaScript",q:"Which method attaches an event handler?",options:["appendChild","addEventListener","querySelectorAll","parseInt"],answer:1},
+  {id:uid(),subject:"JavaScript",q:"Which keyword creates a block-scoped variable that can be reassigned?",options:["const","let","static","fixed"],answer:1},
+  {id:uid(),subject:"Mathematics",q:"What is 7 × 8?",options:["48","54","56","64"],answer:2}
+ ],
+documents:[{id:uid(),title:"My first study document",subject:"JavaScript",content:"<h1>My first study document</h1><p>Start writing your lesson, assignment or revision notes here.</p><p><b>Tip:</b> Use the toolbar to format your text.</p>",updated:new Date().toISOString()}],sessions:[],activity:[]
+};
+let db=load();
+if(!db.documents)db.documents=[{id:uid(),title:"My first study document",subject:"General",content:"<h1>My first study document</h1><p>Start writing here...</p>",updated:new Date().toISOString()}];
+save();
+function load(){try{return {...clone(initial),...JSON.parse(localStorage.getItem(KEY)||"{}")}}catch{return clone(initial)}}
+function save(){localStorage.setItem(KEY,JSON.stringify(db))}
+save();
+let route="dashboard", flash={index:0,show:false};
+
+const nav=[
+ ["dashboard","Dashboard","⌂"],["subjects","Subjects","▦"],["courses","Courses","▤"],["tasks","Tasks","✓"],["documents","Documents","▤"],["calendar","Calendar","□"],["analytics","Progress","◒"],["settings","Settings","⚙"]
+];
+const $=s=>document.querySelector(s), esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])), fmt=d=>d?new Intl.DateTimeFormat(undefined,{month:"short",day:"numeric",year:"numeric"}).format(new Date(d+"T00:00")):"—";
+function navRender(){$("#nav").innerHTML=nav.map(n=>`<button class="${route===n[0]?"active":""}" data-r="${n[0]}"><span>${n[2]}</span>${n[1]}</button>`).join("");$("#nav").querySelectorAll("[data-r]").forEach(b=>b.onclick=()=>go(b.dataset.r))}
+function go(r){route=r;render();$("#side").classList.remove("open")}
+function toast(t){let x=document.createElement("div");x.className="toast";x.textContent=t;$("#toastRoot").append(x);setTimeout(()=>x.remove(),2400)}
+function modal(title,body,fn){$("#modalRoot").innerHTML=`<div class="modal-bg" id="mb"><div class="modal"><div class="modal-head"><h2>${esc(title)}</h2><button class="icon" data-close>×</button></div><form id="mf">${body}<div class="modal-actions"><button type="button" class="btn" data-close>Cancel</button><button class="btn primary">Save</button></div></form></div></div>`;$("#mb").onclick=e=>{if(e.target.dataset.close!==undefined)$("#modalRoot").innerHTML=""};$("#mf").onsubmit=e=>{e.preventDefault();fn(Object.fromEntries(new FormData(e.currentTarget)));$("#modalRoot").innerHTML=""}}
+const input=(l,n,v="",type="text")=>`<div class="field"><label>${esc(l)}</label><input name="${n}" type="${type}" value="${esc(v)}" required></div>`;
+function stats(){let done=db.tasks.filter(t=>t.done).length;return{tasks:db.tasks.length,done,pending:db.tasks.length-done,subjects:db.subjects.length,courses:db.courses.length,notes:db.notes.length,rate:db.tasks.length?Math.round(done/db.tasks.length*100):0}}
+function taskRow(t){return `<div class="row"><input class="check" type="checkbox" data-task="${t.id}" ${t.done?"checked":""}><div><div class="title ${t.done?"done":""}">${esc(t.title)}</div><div class="sub">${esc(t.subject)} · ${fmt(t.due)} · <span class="${t.priority==="high"?"bad":t.priority==="medium"?"warn":"good"}">${t.priority}</span></div></div><div><button class="icon" data-edit-task="${t.id}">✎</button><button class="icon" data-del-task="${t.id}">×</button></div></div>`}
+function dashboard(){
+let s=stats(), upcoming=[...db.tasks].filter(t=>!t.done).sort((a,b)=>a.due.localeCompare(b.due)).slice(0,5);
+return `<div class="head"><div><h1>Welcome back, ${esc(db.profile.name)}.</h1><p>Your study workspace, progress and next actions in one place.</p></div><div class="actions"><button class="btn primary" data-action="task">+ Task</button><button class="btn" data-action="subject">+ Subject</button></div></div>
+<div class="grid stats">${[["Tasks",s.tasks,`${s.pending} pending`],["Completed",s.done,`${s.rate}% completion`],["Subjects",s.subjects,"Active subjects"],["Documents",db.documents?.length||0,"Study documents"]].map(x=>`<div class="card"><div class="stat-label">${x[0]}</div><div class="stat-value">${x[1]}</div><div class="stat-meta">${x[2]}</div></div>`).join("")}</div>
+<div class="grid two" style="margin-top:15px"><div class="card"><div class="card-head"><h3>Upcoming tasks</h3><button class="btn" data-route="tasks">View all</button></div><div class="list">${upcoming.map(taskRow).join("")||`<div class="empty"><b>All clear</b>No pending tasks.</div>`}</div></div>
+<div class="card"><div class="card-head"><h3>Course progress</h3></div>${db.courses.slice(0,5).map(c=>`<div style="margin:15px 0"><div class="card-head" style="margin-bottom:6px"><span>${esc(c.title)}</span><span class="muted">${c.progress}%</span></div><div class="progress"><i style="width:${c.progress}%"></i></div></div>`).join("")||`<div class="empty">No courses yet.</div>`}</div></div>
+<div class="card" style="margin-top:15px"><div class="card-head"><h3>Quick study tips</h3></div><div class="grid three"><div><b>Plan</b><p class="muted">Choose one high-priority task before starting.</p></div><div><b>Practice</b><p class="muted">Use flashcards for active recall.</p></div><div><b>Review</b><p class="muted">Check progress at the end of each study session.</p></div></div></div>`;
+}
+function subjects(){
+return `<div class="head"><div><h1>Subjects</h1><p>Organize your academic areas and goals.</p></div><button class="btn primary" data-action="subject">+ Subject</button></div><div class="grid three">${db.subjects.map(s=>`<article class="subject"><span class="pill">${esc(s.code)}</span><h3>${esc(s.name)}</h3><p>${esc(s.goal)}</p><div class="subject-foot"><span>${esc(s.teacher)}</span><button class="btn" data-edit-subject="${s.id}">Edit</button></div></article>`).join("")||`<div class="empty">No subjects.</div>`}</div>`;
+}
+function courses(){
+return `<div class="head"><div><h1>Courses</h1><p>Track lessons and completion by subject.</p></div><button class="btn primary" data-action="course">+ Course</button></div><div class="grid three">${db.courses.map(c=>`<article class="card"><span class="pill">${esc(c.subject)}</span><h3>${esc(c.title)}</h3><div class="progress"><i style="width:${c.progress}%"></i></div><div class="subject-foot"><span>${c.progress}% complete</span><button class="btn" data-edit-course="${c.id}">Edit</button></div></article>`).join("")||`<div class="empty">No courses.</div>`}</div>`;
+}
+function tasks(){
+let q=window.tq||"",f=window.tf||"all",list=db.tasks.filter(t=>(f==="all"||(f==="done"?t.done:!t.done))&&(t.title+" "+t.subject).toLowerCase().includes(q.toLowerCase()));
+return `<div class="head"><div><h1>Tasks</h1><p>Manage assignments, revision and deadlines.</p></div><button class="btn primary" data-action="task">+ Task</button></div><div class="toolbar"><input class="grow" id="taskQ" placeholder="Search tasks…" value="${esc(q)}"><select id="taskF"><option value="all">All</option><option value="pending">Pending</option><option value="done">Completed</option></select></div><div class="list">${list.map(taskRow).join("")||`<div class="empty"><b>No matching tasks</b>Create a task or change your filter.</div>`}</div>`;
+}
+function notes(){
+return `<div class="head"><div><h1>Notes</h1><p>Keep useful explanations and study context.</p></div><button class="btn primary" data-action="note">+ Note</button></div><div class="grid three">${db.notes.map(n=>`<article class="card note"><span class="pill">${esc(n.subject||"General")}</span><h3>${esc(n.title)}</h3><p>${esc(n.content)}</p><div class="subject-foot"><span>${new Date(n.at).toLocaleDateString()}</span><span><button class="btn" data-edit-note="${n.id}">Edit</button><button class="btn" data-del-note="${n.id}">×</button></span></div></article>`).join("")||`<div class="empty">No notes yet.</div>`}</div>`;
+}
+function flashcards(){
+let c=db.cards.filter(x=>!window.fs||x.subject===window.fs),card=c[flash.index%c.length];
+return `<div class="head"><div><h1>Flashcards</h1><p>Active recall with instant flip and progress.</p></div><div class="actions"><select id="flashSubject"><option value="">All subjects</option>${db.subjects.map(s=>`<option>${esc(s.name)}</option>`).join("")}</select><button class="btn primary" data-action="card">+ Card</button></div></div>${c.length?`<div class="card flashcard" id="flashcard" data-flip>${esc(flash.show?card.back:card.front)}<small>${flash.show?"Answer":"Question"} · Click to flip</small></div><div style="text-align:center;margin-top:14px"><button class="btn" data-flash="-1">← Previous</button><button class="btn primary" data-flash="1">Next →</button><button class="btn" data-flip-btn>Flip</button></div><p class="muted" style="text-align:center">${flash.index%c.length+1} / ${c.length} · ${esc(card.subject)}</p>`:`<div class="card empty"><b>No flashcards</b>Create your first card.</div>`}`;
+}
+
+function documents(){
+let active=db.documents?.find(d=>d.id===window.activeDoc)||db.documents?.[0];
+if(!active)return `<div class="head"><div><h1>Documents</h1><p>Create, edit and organize rich study documents.</p></div><button class="btn primary" data-new-doc>+ New document</button></div><div class="card doc-empty"><div style="text-align:center"><h2>No documents yet</h2><p class="muted">Create a document and start writing like a lightweight Word.</p><button class="btn primary" data-new-doc>+ Create document</button></div></div>`;
+window.activeDoc=active.id;
+return `<div class="head"><div><h1>Documents</h1><p>Rich text editor for lessons, assignments and reports.</p></div><div class="actions"><button class="btn" data-print>Print</button><button class="btn" data-export-doc>Export .html</button><button class="btn primary" data-new-doc>+ New document</button></div></div>
+<div class="editor-shell">
+ <div class="card"><div class="card-head"><h3>My documents</h3><span class="pill">${db.documents.length}</span></div><div class="doc-list">${db.documents.map(d=>`<button class="doc-item ${d.id===active.id?"active":""}" data-open-doc="${d.id}"><b>${esc(d.title||"Untitled")}</b><small>${esc(d.subject||"General")} · ${new Date(d.updated).toLocaleDateString()}</small></button>`).join("")}</div></div>
+ <div class="card editor-card">
+  <div class="editor-toolbar">
+   <button data-cmd="bold"><b>B</b></button><button data-cmd="italic"><i>I</i></button><button data-cmd="underline"><u>U</u></button><button data-cmd="strikeThrough"><s>S</s></button><span class="sep"></span>
+   <select data-format><option value="p">Normal</option><option value="h1">Heading 1</option><option value="h2">Heading 2</option><option value="h3">Heading 3</option><option value="blockquote">Quote</option></select>
+   <button data-cmd="insertUnorderedList">• List</button><button data-cmd="insertOrderedList">1. List</button><span class="sep"></span>
+   <button data-cmd="justifyLeft">Left</button><button data-cmd="justifyCenter">Center</button><button data-cmd="justifyRight">Right</button><span class="sep"></span>
+   <button data-cmd="undo">↶</button><button data-cmd="redo">↷</button><button data-cmd="removeFormat">Clear</button>
+  </div>
+  <input class="editor-title" id="docTitle" value="${esc(active.title)}" placeholder="Document title">
+  <div class="editor-meta"><span>${esc(active.subject||"General")}</span><span>•</span><span id="wordCount">0 words</span><span>•</span><span id="saveState">Saved locally</span></div>
+  <div class="editor-page" id="editor" contenteditable="true" spellcheck="true">${active.content||"<p>Start writing here...</p>"}</div>
+  <div class="editor-status"><span>Rich text · Local storage</span><span>Ctrl/Cmd + S to save</span></div>
+ </div>
+</div>`;
+}
+function quizPage(){
+let qs=db.questions.filter(q=>!window.qs||q.subject===window.qs),q=qs[quiz.index%Math.max(1,qs.length)];
+if(!qs.length)return `<div class="head"><div><h1>Quiz</h1><p>Test yourself with your own question bank.</p></div><button class="btn primary" data-action="question">+ Question</button></div><div class="card empty"><b>No questions</b>Create a quiz question first.</div>`;
+return `<div class="head"><div><h1>Quiz</h1><p>Question ${quiz.index%qs.length+1} of ${qs.length} · Score ${quiz.score}</p></div><div class="actions"><select id="quizSubject"><option value="">All subjects</option>${db.subjects.map(s=>`<option>${esc(s.name)}</option>`).join("")}</select><button class="btn" data-action="question">+ Question</button></div></div><div class="card quiz-card"><h2>${esc(q.q)}</h2>${q.options.map((o,i)=>`<button class="option ${quiz.answered?(i===q.answer?"correct":quiz.selected===i?"wrong":""):""}" data-answer="${i}" ${quiz.answered?"disabled":""}>${esc(o)}</button>`).join("")}${quiz.answered?`<div style="margin-top:15px"><button class="btn primary" data-next-quiz>Next question</button></div>`:""}</div>`;
+}
+function calendar(){
+let d=window.cd||new Date(),y=d.getFullYear(),m=d.getMonth(),first=new Date(y,m,1),start=new Date(y,m,1-first.getDay()),arr=[];for(let i=0;i<42;i++){let x=new Date(start);x.setDate(start.getDate()+i);arr.push(x)}
+let heads=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+return `<div class="head"><div><h1>${d.toLocaleDateString(undefined,{month:"long",year:"numeric"})}</h1><p>Tasks and deadlines at a glance.</p></div><div class="actions"><button class="btn" data-cal="-1">Previous</button><button class="btn" data-cal="0">Today</button><button class="btn" data-cal="1">Next</button></div></div><div class="calendar">${heads.map(h=>`<div class="cal-head">${h}</div>`).join("")}${arr.map(x=>{let k=x.toISOString().slice(0,10),ts=db.tasks.filter(t=>t.due===k);return `<div class="day ${k===today()?"today":""}" style="opacity:${x.getMonth()===m?1:.4}"><b>${x.getDate()}</b>${ts.map(t=>`<div class="event">${esc(t.title)}</div>`).join("")}</div>`}).join("")}</div>`;
+}
+function analytics(){
+let s=stats(),days=[];for(let i=6;i>=0;i--){let d=new Date();d.setDate(d.getDate()-i);let k=d.toISOString().slice(0,10);days.push({l:d.toLocaleDateString(undefined,{weekday:"short"}),n:db.tasks.filter(t=>t.done&&t.due===k).length})}
+return `<div class="head"><div><h1>Progress</h1><p>Understand your study consistency from local data.</p></div></div><div class="grid stats"><div class="card"><div class="stat-label">Completion rate</div><div class="stat-value">${s.rate}%</div></div><div class="card"><div class="stat-label">Completed tasks</div><div class="stat-value">${s.done}</div></div><div class="card"><div class="stat-label">Courses</div><div class="stat-value">${s.courses}</div></div><div class="card"><div class="stat-label">Flashcards</div><div class="stat-value">${db.cards.length}</div></div></div><div class="card" style="margin-top:15px"><div class="card-head"><h3>Completed tasks — last 7 days</h3></div><div class="bar-chart">${days.map(d=>`<div class="bar-col"><div class="bar" style="height:${Math.max(4,d.n*28)}%"></div><small>${d.l}<br>${d.n}</small></div>`).join("")}</div></div>`;
+}
+function settings(){
+return `<div class="head"><div><h1>Settings</h1><p>Customize your local StudyOS workspace.</p></div></div><div class="grid two"><div class="card"><div class="card-head"><h3>Profile</h3></div>${input("Name","name",db.profile.name)}${input("Email","email",db.profile.email,"email")}<button class="btn primary" data-save-profile>Save profile</button></div><div class="card"><div class="card-head"><h3>Appearance & data</h3></div><div class="field"><label>Theme</label><select id="themeSelect"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></div><p class="muted">Use Export/Import in the top bar for backups.</p><button class="btn bad" data-reset>Reset all data</button></div></div>`;
+}
+function render(){navRender();$("#pageTitle").textContent=nav.find(n=>n[0]===route)?.[1]||"StudyOS";$("#appRoot").innerHTML=({dashboard,subjects,courses,tasks,documents,calendar,analytics,settings}[route]||dashboard)();bind()}
+
+function updateDoc(show){
+let d=db.documents?.find(x=>x.id===window.activeDoc); if(!d)return;
+d.title=$("#docTitle")?.value.trim()||"Untitled"; d.content=$("#editor")?.innerHTML||"<p></p>"; d.updated=new Date().toISOString(); save();
+let st=$("#saveState"); if(st)st.textContent=show?"Saved":"Saving…"; if(!show)setTimeout(()=>{let z=$("#saveState");if(z)z.textContent="Saved locally"},250);
+}
+function updateWordCount(){let e=$("#editor"),w=$("#wordCount");if(!e||!w)return;let text=e.innerText.trim();w.textContent=(text?text.split(/\s+/).length:0)+" words";}
+function newDocument(){let d={id:uid(),title:"Untitled document",subject:"General",content:"<p>Start writing here...</p>",updated:new Date().toISOString()};db.documents.push(d);window.activeDoc=d.id;save();render();setTimeout(()=>{$("#docTitle")?.focus()},50)}
+function exportDocument(){let d=db.documents.find(x=>x.id===window.activeDoc);if(!d)return;let html=`<!doctype html><html><head><meta charset="utf-8"><title>${esc(d.title)}</title></head><body>${d.content}</body></html>`;let a=document.createElement("a");a.href=URL.createObjectURL(new Blob([html],{type:"text/html"}));a.download=(d.title||"document").replace(/[^\w\- ]/g,"")+".html";a.click();URL.revokeObjectURL(a.href)}
+function bind(){
+let editor=$("#editor"), docTitle=$("#docTitle");
+if(editor){
+ editor.oninput=()=>{updateDoc(false); updateWordCount();};
+ editor.onkeyup=()=>updateWordCount();
+ document.querySelectorAll("[data-cmd]").forEach(b=>b.onclick=()=>{editor.focus();document.execCommand(b.dataset.cmd,false,null);updateDoc(false);updateWordCount()});
+ let fmt=document.querySelector("[data-format]"); if(fmt)fmt.onchange=()=>{editor.focus();document.execCommand("formatBlock",false,fmt.value);updateDoc(false)};
+ document.querySelectorAll("[data-open-doc]").forEach(b=>b.onclick=()=>{window.activeDoc=b.dataset.openDoc;render()});
+ document.querySelectorAll("[data-new-doc]").forEach(b=>b.onclick=()=>newDocument());
+ document.querySelectorAll("[data-print]").forEach(b=>b.onclick=()=>window.print());
+ document.querySelectorAll("[data-export-doc]").forEach(b=>b.onclick=()=>exportDocument());
+ if(docTitle)docTitle.oninput=()=>updateDoc(false);
+ updateWordCount();
+}
+
+$("#appRoot").querySelectorAll("[data-route]").forEach(x=>x.onclick=()=>go(x.dataset.route));
+$("#appRoot").querySelectorAll("[data-action]").forEach(x=>x.onclick=()=>actions(x.dataset.action));
+$("#appRoot").querySelectorAll("[data-task]").forEach(x=>x.onchange=()=>{let t=db.tasks.find(t=>t.id===x.dataset.task);t.done=x.checked;save();render()});
+$("#appRoot").querySelectorAll("[data-del-task]").forEach(x=>x.onclick=()=>{if(confirm("Delete task?")){db.tasks=db.tasks.filter(t=>t.id!==x.dataset.delTask);save();render()}});
+$("#appRoot").querySelectorAll("[data-edit-task]").forEach(x=>x.onclick=()=>openTask(x.dataset.editTask));
+$("#appRoot").querySelectorAll("[data-edit-subject]").forEach(x=>x.onclick=()=>openSubject(x.dataset.editSubject));
+$("#appRoot").querySelectorAll("[data-edit-course]").forEach(x=>x.onclick=()=>openCourse(x.dataset.editCourse));
+$("#appRoot").querySelectorAll("[data-edit-note]").forEach(x=>x.onclick=()=>openNote(x.dataset.editNote));
+$("#appRoot").querySelectorAll("[data-del-note]").forEach(x=>x.onclick=()=>{if(confirm("Delete note?")){db.notes=db.notes.filter(n=>n.id!==x.dataset.delNote);save();render()}});
+let tq=$("#taskQ");if(tq)tq.oninput=()=>{window.tq=tq.value;render()};let tf=$("#taskF");if(tf){tf.value=window.tf||"all";tf.onchange=()=>{window.tf=tf.value;render()}}
+let fs=$("#flashSubject");if(fs){fs.value=window.fs||"";fs.onchange=()=>{window.fs=fs.value;flash.index=0;flash.show=false;render()}}
+$("#appRoot").querySelectorAll("[data-flip]").forEach(x=>x.onclick=()=>{flash.show=!flash.show;render()});$("#appRoot").querySelectorAll("[data-flip-btn]").forEach(x=>x.onclick=()=>{flash.show=!flash.show;render()});
+$("#appRoot").querySelectorAll("[data-flash]").forEach(x=>x.onclick=()=>{flash.index+=Number(x.dataset.flash);flash.show=false;render()});
+$("#appRoot").querySelectorAll("[data-cal]").forEach(x=>x.onclick=()=>{if(!window.cd)window.cd=new Date();if(x.dataset.cal==="0")window.cd=new Date();else window.cd.setMonth(window.cd.getMonth()+Number(x.dataset.cal));render()});
+let th=$("#themeSelect");if(th){th.value=db.theme;th.onchange=()=>{db.theme=th.value;save();themeApply();render()}}
+let sp=$("[data-save-profile]");if(sp)sp.onclick=()=>{db.profile.name=$('[name=name]').value;db.profile.email=$('[name=email]').value;save();toast("Profile saved");render()}
+let reset=$("[data-reset]");if(reset)reset.onclick=()=>{if(confirm("Reset StudyOS completely?")){localStorage.removeItem(KEY);location.reload()}}
+}
+function actions(a){if(a==="task")openTask();if(a==="subject")openSubject();if(a==="course")openCourse();if(a==="note")openNote();if(a==="card")openCard();}
+function openTask(id){let t=id?db.tasks.find(x=>x.id===id):{};modal(id?"Edit task":"New task",`${input("Title","title",t.title||"")}<div class="field"><label>Subject</label><select name="subject">${db.subjects.map(s=>`<option ${t.subject===s.name?"selected":""}>${esc(s.name)}</option>`).join("")}</select></div>${input("Due date","due",t.due||today(),"date")}<div class="field"><label>Priority</label><select name="priority"><option>low</option><option>medium</option><option>high</option></select></div>`,d=>{if(id)Object.assign(t,d);else db.tasks.push({id:uid(),...d,done:false});save();toast("Task saved");render()})}
+function openSubject(id){let s=id?db.subjects.find(x=>x.id===id):{};modal(id?"Edit subject":"New subject",`${input("Name","name",s.name||"")} ${input("Code","code",s.code||"SUB")} ${input("Teacher / category","teacher",s.teacher||"")}<div class="field"><label>Goal</label><textarea name="goal" rows="4" required>${esc(s.goal||"")}</textarea></div>`,d=>{if(id)Object.assign(s,d);else db.subjects.push({id:uid(),...d});save();toast("Subject saved");render()})}
+function openCourse(id){let c=id?db.courses.find(x=>x.id===id):{};modal(id?"Edit course":"New course",`${input("Course title","title",c.title||"")}<div class="field"><label>Subject</label><select name="subject">${db.subjects.map(s=>`<option>${esc(s.name)}</option>`).join("")}</select></div>${input("Progress %","progress",c.progress??0,"number")}`,d=>{d.progress=Math.max(0,Math.min(100,Number(d.progress)));if(id)Object.assign(c,d);else db.courses.push({id:uid(),...d});save();toast("Course saved");render()})}
+function openNote(id){let n=id?db.notes.find(x=>x.id===id):{};modal(id?"Edit note":"New note",`${input("Title","title",n.title||"")}<div class="field"><label>Subject</label><select name="subject"><option>General</option>${db.subjects.map(s=>`<option>${esc(s.name)}</option>`).join("")}</select></div><div class="field"><label>Content</label><textarea name="content" rows="8" required>${esc(n.content||"")}</textarea></div>`,d=>{if(id)Object.assign(n,d);else db.notes.push({id:uid(),...d,at:new Date().toISOString()});save();toast("Note saved");render()})}
+function openCard(){modal("New flashcard",`${input("Subject","subject",db.subjects[0]?.name||"General")}<div class="field"><label>Question / Front</label><textarea name="front" rows="3" required></textarea></div><div class="field"><label>Answer / Back</label><textarea name="back" rows="3" required></textarea></div>`,d=>{db.cards.push({id:uid(),...d});save();toast("Flashcard added");render()})}
+function themeApply(){let t=db.theme,dark=t==="dark"||(t==="system"&&matchMedia("(prefers-color-scheme:dark)").matches);document.documentElement.dataset.theme=dark?"dark":"light"}
+$("#theme").onclick=()=>{db.theme=db.theme==="dark"?"light":"dark";save();themeApply()};
+$("#menu").onclick=()=>$("#side").classList.add("open");
+$("#searchBtn").onclick=()=>{let q=prompt("Search tasks, notes, subjects or courses:");if(!q)return;let z=(db.tasks.map(x=>["Task",x.title]).concat(db.notes.map(x=>["Note",x.title]),db.subjects.map(x=>["Subject",x.name]),db.courses.map(x=>["Course",x.title]))).filter(x=>x[1].toLowerCase().includes(q.toLowerCase()));alert(z.length?z.map(x=>x[0]+": "+x[1]).join("\\n"):"No results.")};
+$("#exportBtn").onclick=()=>{let a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify(db,null,2)],{type:"application/json"}));a.download="studyos-backup.json";a.click();URL.revokeObjectURL(a.href)};
+$("#importBtn").onclick=()=>$("#importFile").click();
+$("#importFile").onchange=e=>{let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let x=JSON.parse(r.result);if(!x.subjects||!x.tasks)throw Error();db={...clone(initial),...x};save();toast("Backup imported");render()}catch{toast("Invalid StudyOS backup")}};r.readAsText(f)};
+window.addEventListener("keydown",e=>{
+ if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){e.preventDefault();$("#searchBtn").click()}
+ if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="s"&&$("#editor")){e.preventDefault();updateDoc(true);toast("Document saved")}
+});
+themeApply();render();
+</script>
+</body>
+</html>
